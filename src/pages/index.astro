@@ -1,49 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import { contentfulClient } from "../lib/contentful";
-import type { BlogPost } from "../lib/contentful";  
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { EntryFieldTypes } from "contentful";
+
+interface BlogPost {
+  contentTypeId: "pageBlogPost",
+  fields: {
+    title: EntryFieldTypes.Text
+    content: EntryFieldTypes.RichText,
+  }
+}
 
 const entries = await contentfulClient.getEntries<BlogPost>({
-	content_type: "post",
+  content_type: "pageBlogPost",
 });
 
-const posts = entries.items.map((item) => {
-	const { title, date, content,tagging, } = item.fields;
-	return {
-		title,
-		content,
-		date,
-		tagging,
-	};
-});
+const name = 'barry'
 ---
-
-<Layout title="Dan's portfolio">
-	<main class="">
-		<div data-augmented-ui="" class=" space-y-4  mx-auto max-w-3xl px-2">
-			<header><h1 class="text-5xl crt font-bold text-center font-extralight py-2">CY_blorg</h1></header>
-		
-		{
-			posts.map((post) => (
-				<ul data-augmented-ui="tr-clip br-2-clip-x tr-clip bl-clip both l-clip-y r-clip-y tl-2-clip-x " class="container">
-
-					<div class="glow-container pt-8 pb-2 px-5 card" data-augmented-ui="">
-						<h2 class="font-bold text-2xl text-blue inline-block mb-2">{post.title}</h2>
-
-					<p class="mb-2">{post.content}</p>
-				</div>
-					<div data-augmented-ui=" br-clip border" class="font-black mb-6 bg-teal-900 text-sm py-4 px-5 pr-8 text-pink bg-transparent">
-						{post.tagging}
-					</div>
-
-					<time data-augmented-ui=" tl-clip bl-clip tr-clip br-clip border" class="bg-cyan-400 crt text-black text-lg absolute top-1 right-1 pl-4 pr-2  time-stamp">
-						{post.date}
-					</time>
-
-				</ul>
-			))
-		}
-		</div>
-		<!-- <div class="backgrounds h-screen w-screen crt">a</div> --> 
-	</main>
-</Layout>
+<body>
+	{name}
+  {entries.items.map((item) => (
+    <section>
+      <h2>{item.fields.title}</h2>
+      <article set:html={documentToHtmlString(item.fields.content)}></article>
+    </section>
+  ))}
+</body>
