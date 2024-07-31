@@ -1,0 +1,56 @@
+.text-high{
+    color:var(--text-high);
+}
+
+.text-mid{
+    color:var(--text-mid);
+}
+
+.text-low{
+    color:var(--text-low);
+}
+
+.h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-left: -0.2rem;
+}
+
+.h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: -0.2rem;
+}
+
+.h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-left: -0.2rem;  
+}
+
+.h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: -0.2rem;  
+}
+
+
+
+@media screen and (min-width: 636px) {
+    .h1 {
+        font-size: 4rem;
+    }
+    .h2 {
+        font-size: 3rem;
+    }
+    .h3 {
+        font-size: 2.5rem;
+    }
+    .h4 {
+        font-size: 2rem;
+    }
+}
+
+b {
+    font-weight: 900;
+}

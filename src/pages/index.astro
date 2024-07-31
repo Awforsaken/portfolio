@@ -1,7 +1,10 @@
 ---
+
 import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { EntryFieldTypes } from "contentful";
+
+
 
 interface BlogPost {
   contentTypeId: "pageBlogPost",
@@ -18,13 +21,68 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 const t = await contentfulClient.getTags();
 
 const name = 'barry'
+
+import Header from '../components/Header.astro';
+
 ---
+  
+<head>
+	<link rel="stylesheet" href="/styles/global.css" />
+	<link rel="stylesheet" href="/styles/type.css" />
+	<link rel="stylesheet" href="/styles/colours.css" />
+</head>
 <body>
-	{name}
-  {entries.items.map((item) => (
-    <section>
-      <h2>{item.fields.title}</h2>
-      <article set:html={documentToHtmlString(item.fields.content)}></article>
-    </section>
-  ))}
+	<Header />
+		<div class="core-width box-r box-l">
+			<div class="hero padded">
+				<br>
+				<br>
+				<h1 class="h1 mono text-high">Danielius <br> Maskolaitis</h1>
+				
+				<div class="text-low mono">UX & UI designer</div>
+				<br>
+				<br>
+				<div class="text-mid text-max text-high">
+					I am a UX and UI designer, general creative who loves tinkering with code based in Manchester, UK. I grew up on the internet and love computers and software. In my 10 years of experience I have designed User Interfaces and experiences, planned, supported, and implemented features and roadmaps, executed A/B research, and built and led cross-functional teams at companies like <b>PrettyLittleThing</b>, <b>Getting Personal</b>, and <b>Collidr Technologies</b>.
+					
+				</div>
+				<br>
+				<br>
+				<div class="mono">
+					This work in progress and i still have things to do:
+					<ul>
+						<li>mobile header</li>
+						<li>styling for portfolio bento // clean up bento.css</li>
+						<li>sort out about me section</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-t box-b" style="margin-top:0vh;">
+			<div class="core-width lined box-r box-l h-2rem">
+			</div>
+		</div>
+		<div class=" box-b">
+			<div class="core-width box-r box-l">
+				<h1 class="h2 padded "> Project highlights</h1>
+			</div>
+			
+		</div>
+		<div class="core-width box-r ">
+			<div class="bento-container lined">
+				{entries.items.map((item) => (
+					<div class="bento-item small box-l box-b">
+					  <h2 class="h4">{item.fields.title}</h2>
+					  <article set:html={documentToHtmlString(item.fields.content)}></article>
+					</div>
+				  ))}
+			</div>
+			
+			{name}
+
+		</div>
+		
+	
+
 </body>

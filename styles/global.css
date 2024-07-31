@@ -1,0 +1,244 @@
+:root {
+    --text-high: var(--black);
+    --text-mid: var(--gray-700);
+    --text-low: var(--gray-600);
+    --bg: var(--gray-100);
+    --bg-raised:var(--gray-200);
+    --border:1px solid var(--border-colour);
+    --border-colour: var(--gray-300);
+
+    --black:#191919;
+    --grey1:#808080;
+    --grey2:#B3B3B3;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/styles/GeistVF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+ 
+  @font-face {
+    font-family: 'GeistMono';
+    src: url('GeistMonoVF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+* {
+    box-sizing: border-box;
+    margin:0;
+}
+
+body {
+    background-color: var(--bg);
+    margin:0px;
+    font-family: 'Geist', monospace;
+}
+
+/* utility */
+
+.bg {
+    background-color: var(--bg);
+}
+
+header {
+    border-bottom: var(--border);
+    border-top: var(--border);
+}
+
+.core-width {
+    margin: 0 1rem;
+}
+
+.box-l {
+    margin-left:0;
+    border-left:var(--border);
+}
+
+.box-r {
+    margin-right:0;
+    border-right:var(--border);
+}
+
+.box-b {
+    margin-bottom:0;
+    border-bottom:var(--border); 
+}
+
+.box-t {
+    margin-top:0;
+    border-top:var(--border); 
+}
+.lined {
+    background: linear-gradient(
+        45deg,
+        transparent 49%,
+        var( --purple-300) 50%,
+        transparent 51%
+    );
+    background-size: 10px 10px; /* Adjust the size to create the diagonal lines */
+}
+
+.padded {
+    padding:1rem 2rem;
+}
+
+.mono {
+    font-family: 'GeistMono';    
+}
+
+.cta {
+    background-color: var(--teal-200);
+    position: relative;
+}
+
+.cta::after {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    border: 4px solid var(--bg);
+}
+
+.h-2rem {
+    min-height:2rem;
+}
+
+.w-2rem {
+    min-width:2rem;
+}
+
+.text-max {
+    max-width: 760px;
+}
+
+  /*body wrappers*/
+.header-contents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Optional: allows wrapping to next line if needed */
+    justify-content:space-between;
+}
+
+
+
+.nav-item {
+    
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color:var(--text-high);
+}
+
+
+  
+.logo {
+background-color: red;
+max-width:200px;
+}
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    top: 5rem;
+    left: 48px;
+    background-color: #ff9776;
+    display: none;
+    margin: 0;
+  }
+  
+  .nav-links a {
+    padding: 1rem 2rem;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-high);
+    margin:0;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    
+background-image: linear-gradient(
+    45deg,
+    transparent 49%,
+    var(--pink-400) 50%,
+    transparent 51%
+), linear-gradient(
+    135deg,
+    transparent 49%,
+    var(--pink-400) 50%,
+    transparent 51%
+);
+background-size: 20px 20px; /* Adjust the size to create the diagonal lines */
+  }
+  
+  .expanded {
+    display: unset;
+  }
+  
+/* bento */
+
+  .bento-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 0;
+}
+
+.bento-item.large, .bento-item.medium {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+
+hero {
+    
+    position: fixed;
+    height: 90vh;
+    z-index: 0;
+}
+  @media screen and (min-width: 636px) {
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        background: var(--bg);
+    }
+    .nav-links a {
+        padding: 1rem;
+    }
+    
+    .core-width {
+        margin: 0 4rem;
+    }
+
+    .bento-item.large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    .bento-item.medium {
+        grid-column: span 2;
+    }
+    .bento-item.small {
+        grid-column: span 1;
+    }
+
+    .bento-item {
+        background-color: var(--bg-raised);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+  }
