@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {contentfulClient } from "../../lib/contentful";
+import {BlogPost} from "../index.astro"
+import type { Document } from "@contentful/rich-text-types";
+import BlogContent from "../../components/blogContent";
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  tagging: string[];
+  ttr: number;
+  content: Document;
+  
+}
+
+export async function getStaticPaths() {
+  const { items } = await contentfulClient.getEntries<BlogPost>({
+    content_type: "post",
+  });
+
+  if (!items) {
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
+
+  const pages = items.map((item) => ({
+    params: { slug: item.fields.slug },
+    props: {
+      title: item.fields.title,
+      content: item.fields.content,
+      tags: item.metadata.tags?.map((x) => x.sys.id) ?? [],
+    },
+  }));
+
+  return pages;
+}
+
+const { title, tags, content,imageUrl } = Astro.props;
+
+---
+
+<Layout>
+  <div class="outline">
+    {imageUrl && (
+      <img src={imageUrl} alt="{title}" class="post-image" />
+    )}
+    <h1 class="h2 padded mono core-width outline">{title}</h1>
+  </div>
+  <div class="outline">
+    <div class="core-width outline padded">
+     
+      <BlogContent body={content}/>
+    {tags.length > 0 && (
+      <div class="bento-tags">
+        {tags.map(tag => (
+          <span class="tag mono">{tag}</span>
+        ))}
+      </div>
+    )}
+    </div>
+    
+  </div>
+      
+
+
+
+</Layout>

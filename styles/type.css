@@ -1,3 +1,21 @@
+/* blog post specific styles */
+article h1, article h2, article h3, article h4{
+    margin-bottom: 1rem;
+    font-family: "Space Mono", monospace;
+}
+
+article h1{
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+article p {
+    margin-bottom: 1rem;
+    color:var(--text-mid);
+}
+
+/* general text stuff */
+
 .text-high{
     color:var(--text-high);
 }
@@ -10,33 +28,55 @@
     color:var(--text-low);
 }
 
+.text-outline {
+    color: var(--bg);
+    text-shadow: -1px -1px 0 var(--text-high), 1px -1px 0 var(--text-high), -1px 1px 0 var(--text-high), 1px 1px 0 var(--text-high);
+  }
+
+.highlight-red {
+    color: var(--red-700);
+}
+
 .h1 {
     font-size: 3rem;
     font-weight: 900;
     margin-left: -0.2rem;
+
 }
 
 .h2 {
     font-size: 2rem;
     font-weight: 600;
-    margin-left: -0.2rem;
+
 }
 
 .h3 {
     font-size: 1.8rem;
     font-weight: 600;
-    margin-left: -0.2rem;  
+
 }
 
 .h4 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin-left: -0.2rem;  
+
 }
 
+.h5 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
 
+.h6 {
+    font-size: 1rem;
+    font-weight: 700;
+}
 
-@media screen and (min-width: 636px) {
+b {
+    font-weight: 900;
+}
+
+@media screen and (min-width: 720px) {
     .h1 {
         font-size: 4rem;
     }
@@ -49,8 +89,16 @@
     .h4 {
         font-size: 2rem;
     }
+    .h5 {
+        font-size: 1.2rem;
+    }
+    .h6 {
+        font-size: 1rem;
+    }
 }
 
-b {
-    font-weight: 900;
+@media screen and (min-width: 2000px) {
+    html {
+        font-size: 120%;
+    }
 }

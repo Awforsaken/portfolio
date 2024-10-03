@@ -1,88 +1,131 @@
 ---
-
 import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import type { EntryFieldTypes } from "contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
 
-
-
-interface BlogPost {
-  contentTypeId: "pageBlogPost",
+// Define the BlogPost interface for typing
+export interface BlogPost {
+  contentTypeId: "post",
   fields: {
-    title: EntryFieldTypes.Text
+    title: EntryFieldTypes.Text,
+    size: EntryFieldTypes.Text,
     content: EntryFieldTypes.RichText,
-  }
-}
+    titleImage: EntryFieldTypes.Text, // Image as an asset from Contentful
+    tagging: EntryFieldTypes.Text[], // Assuming tagging is a text array of tag names or IDs
+    slug: EntryFieldTypes.Text // Add slug field
+  }}
 
+// Fetch the blog post entries
 const entries = await contentfulClient.getEntries<BlogPost>({
-  content_type: "pageBlogPost",
+  content_type: "post",
 });
 
-const t = await contentfulClient.getTags();
+// Manually define available tags
+const availableTags = ['Personal', 'Web dev', 'Work', 'UX/UI', 'Design']; 
 
-const name = 'barry'
+const name = 'barry'; // Just a variable for testing
 
 import Header from '../components/Header.astro';
-
 ---
-  
+
 <head>
-	<link rel="stylesheet" href="/styles/global.css" />
-	<link rel="stylesheet" href="/styles/type.css" />
-	<link rel="stylesheet" href="/styles/colours.css" />
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/type.css" />
+  <link rel="stylesheet" href="/styles/colours.css" />
+  <link rel="stylesheet" href="/styles/bento.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <script src="/filter.js" defer></script>
 </head>
 <body>
-	<Header />
-		<div class="core-width box-r box-l">
-			<div class="hero padded">
-				<br>
-				<br>
-				<h1 class="h1 mono text-high">Danielius <br> Maskolaitis</h1>
-				
-				<div class="text-low mono">UX & UI designer</div>
-				<br>
-				<br>
-				<div class="text-mid text-max text-high">
-					I am a UX and UI designer, general creative who loves tinkering with code based in Manchester, UK. I grew up on the internet and love computers and software. In my 10 years of experience I have designed User Interfaces and experiences, planned, supported, and implemented features and roadmaps, executed A/B research, and built and led cross-functional teams at companies like <b>PrettyLittleThing</b>, <b>Getting Personal</b>, and <b>Collidr Technologies</b>.
-					
-				</div>
-				<br>
-				<br>
-				<div class="mono">
-					This work in progress and i still have things to do:
-					<ul>
-						<li>mobile header</li>
-						<li>styling for portfolio bento // clean up bento.css</li>
-						<li>sort out about me section</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+  <Header />
+  <div class="core-width outline">
+    <div class="hero padded">
+      <h1 class="h1 mono text-high"><span class="highlight-red">Dan</span>ielius M.</h1>
+      <div class="text-low mono">UX & UI designer</div>
+      <div class="text-mid text-max text-high">
+        I am a UX and UI designer, general creative who loves tinkering with code...
+      </div>
+      <div class="mono">
+        This work in progress and I still have things to do:
+        <ul>
+          <li>mobile header</li>
+          <li>styling for portfolio bento // clean up bento.css</li>
+          <li>sort out about me section</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-		<div class="box-t box-b" style="margin-top:0vh;">
-			<div class="core-width lined box-r box-l h-2rem">
-			</div>
-		</div>
-		<div class=" box-b">
-			<div class="core-width box-r box-l">
-				<h1 class="h2 padded "> Project highlights</h1>
-			</div>
-			
-		</div>
-		<div class="core-width box-r ">
-			<div class="bento-container lined">
-				{entries.items.map((item) => (
-					<div class="bento-item small box-l box-b">
-					  <h2 class="h4">{item.fields.title}</h2>
-					  <article set:html={documentToHtmlString(item.fields.content)}></article>
-					</div>
-				  ))}
-			</div>
-			
-			{name}
+  <div class="outline">
+    <div class="core-width lined outline h-2rem"></div>
+  </div>
+  <div class="outline">
+    <div class="core-width outline">
+      <h1 class="h2 padded mono">Project highlights</h1>
+    
+    </div>
+  </div>
+  <div class="outline">
+          <!-- Manually configured checkboxes for filtering -->
+   <div id="tag-filters" class="outline core-width lined">
+  {availableTags.map(tag => (
+    <label key={tag} class="tag-filter-option outline mono">
+      <input type="checkbox" value={tag} checked/>
+      <span>{tag}</span>
+    </label>
+  ))}
+    <span>
+      <input type="checkbox" id="orange" name="orange" checked >
+      <label for="orange" >Orange</label>
+    </span>
+</div>      
+  </div>
+  <div class="outline">
+    <div class="core-width outline">
+      <!-- Display blog posts dynamically -->
+      <div class="bento-container lined" id="post-container">
+        {entries.items.map((item) => {
+          const sizeClass = item.fields.size || 'size-small';
+          const imageUrl = item.fields.titleImage?.fields.file.url;
+          const postTags = item.fields.tagging || [];
+          const tagClasses = postTags.map(tag => tag.replace(/\s+/g, '-').toLowerCase()).join(' ');
+          const slug = item.fields.slug; // Fetch the slug from Contentful
+      
+          return (
+            <a href={`/posts/${slug}`} key={slug} class={`bento-item outline ${sizeClass} ${tagClasses}`} 
+                style={imageUrl ? `background-image: url(${imageUrl});` : ''}
+                data-tags={postTags.join(',')}>  {/* Link to individual post using slug */}
+              
+                
+                <div class="bento-info-card">
+                  <h2 class="h5 mono">{item.fields.title}</h2>
+                </div>
+        
+                {postTags.length > 0 && (
+                  <div class="bento-tags">
+                    {postTags.map(tag => (
+                      <span key={tag} class="tag mono">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+  <div class="outline">
+    <div class="core-width lined outline h-2rem"></div>
+  </div>
+  
 
-		</div>
-		
-	
+  
 
+  {name}
 </body>
