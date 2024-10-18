@@ -123,6 +123,9 @@ outline-offset: -1px;
     max-width:200px;
 }
 
+a{
+   color:var(--red-700); 
+}
 
 .nav-links.desktop {
     display: none;
@@ -141,9 +144,7 @@ left: 48px;
 margin: 0;
 }
 
-a {
-    color:var(--text-high);
-}
+
 
 .cta {
     padding: 1rem 1.5rem;

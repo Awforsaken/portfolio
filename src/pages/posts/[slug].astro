@@ -50,10 +50,8 @@ const { title, tags, content,imageUrl } = Astro.props;
     )}
     <h1 class="h2 padded mono core-width outline">{title}</h1>
   </div>
-  <div class="outline">
-    <div class="core-width outline padded">
-     
-      <BlogContent body={content}/>
+  <div class="outline lined">
+
     {tags.length > 0 && (
       <div class="bento-tags">
         {tags.map(tag => (
@@ -61,6 +59,10 @@ const { title, tags, content,imageUrl } = Astro.props;
         ))}
       </div>
     )}
+    <div class="core-width outline padded bg">
+     
+      <BlogContent body={content}/>
+
     </div>
     
   </div>
