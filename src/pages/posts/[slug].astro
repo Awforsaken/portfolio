@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import {contentfulClient } from "../../lib/contentful";
 import {BlogPost} from "../index.astro"
 import type { Document } from "@contentful/rich-text-types";
-import BlogContent from "../../components/blogContent";
+import BlogContent from "../../components/blogContent.astro";
 
 interface Props {
   title: string;

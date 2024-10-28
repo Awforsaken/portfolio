@@ -1,0 +1,8 @@
+---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+const { body } = Astro.props;
+---
+
+  <article id="blog-post-content">
+    {documentToHtmlString(body)}
+  </article>
