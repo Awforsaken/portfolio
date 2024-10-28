@@ -4,7 +4,8 @@ dist/
 .astro/
 
 # dependencies
-nogit de_modules/
+node_modules/
+.vercel/
 
 # logs
 npm-debug.log*
