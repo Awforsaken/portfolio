@@ -3,6 +3,5 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 const { body } = Astro.props;
 ---
 
-  <article id="blog-post-content">
-    {documentToHtmlString(body)}
+  <article id="blog-post-content"  set:html={documentToHtmlString(body)}>
   </article>
