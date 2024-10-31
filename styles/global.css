@@ -48,6 +48,36 @@ body {
     font-family: "Geist", monospace;
 }
 
+.arrow {
+  fill:var(--gray-200);
+  position:absolute;
+  top:0.8rem;
+  right:0.8rem;
+
+}
+.arrow * {
+    transition: all 0.05s;
+}
+
+.bento-item:hover .arrow > .svg-arrow-tail{
+   transform: translate(2px, 0);
+    fill:var(--amber-300);
+}
+
+.bento-item:hover .arrow > .svg-arrow-mid{
+   transform: translate(-2px, 0);
+      fill:var(--amber-300);
+}
+
+.bento-item:hover .arrow > .svg-arrow-top{
+   transform: translate(0, 2px);
+      fill:var(--amber-300);
+}
+.bento-item:hover .arrow > .svg-arrow-bot{
+   transform: translate(0, -2px);
+      fill:var(--amber-300);
+}
+
 /* text content styling */
 article h1{
     margin-bottom: 1rem;
