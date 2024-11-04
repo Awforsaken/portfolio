@@ -2,7 +2,6 @@
 import { contentfulClient } from "../lib/contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { EntryFieldTypes, Asset } from "contentful";
-import Header from '../components/Header.astro';
 import Layout from "../layouts/Layout.astro";
 
 // Define the BlogPost interface for typing
@@ -12,6 +11,7 @@ export interface BlogPost {
     title: EntryFieldTypes.Text,
     size: EntryFieldTypes.Text,
     content: EntryFieldTypes.RichText,
+    overview: EntryFieldTypes.RichText,
     titleImage: EntryFieldTypes.Text, // Image as an asset from Contentful
     tagging: EntryFieldTypes.Text[], // Assuming tagging is a text array of tag names or IDs
     slug: EntryFieldTypes.Text // Add slug field
@@ -29,14 +29,6 @@ const name = 'barry'; // Just a variable for testing
 
 ---
 
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-  <script src="/filter.js" defer></script>
-</head>
 <Layout>
   <div class="core-width outline">
     <div class="hero padded">
@@ -63,11 +55,7 @@ const name = 'barry'; // Just a variable for testing
   <div class="outline">
     <div class="core-width outline">
       <h1 class="h2 padded mono">Project highlights</h1>
-    
     </div>
-  </div>
-  <div class="outline">
-          <!-- Manually configured checkboxes for filtering -->
    <div id="tag-filters" class="outline core-width lined">
   {availableTags.map(tag => (
     <label key={tag} class="tag-filter-option outline mono">

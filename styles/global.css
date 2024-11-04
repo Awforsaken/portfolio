@@ -279,13 +279,50 @@ background-size: 20px 20px; Adjust the size to create the diagonal lines */
     grid-row: span 1;
 }
 
+.project-split-container {
+    display:flex;
+    flex-direction: row;
+    gap:4rem;
+}
+
+.project-split-container .title, .project-split-container .description {
+    display: flex;
+}
+
+
+.project-split-container .title {
+    color:var(--gray-400);
+    flex:1;
+}
+
+.project-split-container .description {
+    flex:4;
+}
 hero {
     
     position: fixed;
     height: 90vh;
     z-index: 0;
 }
+
+.post-image{
+    width: 100%;         /* Makes the image fit the container width */
+    height: auto;        /* Keeps the image aspect ratio */
+    object-fit: contain;   /* Ensures image covers the container, cropping if necessary */
+    max-width: 100%;   
+    max-height: 640px;
+}
   @media screen and (min-width: 720px) {
+    .split {
+        display:flex;
+        flex-direction: row;
+    }
+    .split > div {
+        display:flex;
+        flex:1;
+        align-items: center;     /* Centers vertically */
+    }
+
     .padded {
         padding:1rem 2rem;
     }

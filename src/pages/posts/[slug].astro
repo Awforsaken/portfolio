@@ -12,6 +12,7 @@ interface Props {
   tagging: string[];
   ttr: number;
   content: Document;
+  overview: Document;
   
 }
 
@@ -32,14 +33,17 @@ export async function getStaticPaths() {
     props: {
       title: item.fields.title,
       content: item.fields.content,
+      overview: item.fields.overview,  
       tags: item.metadata.tags?.map((x) => x.sys.id) ?? [],
+      titleImage: item.fields.titleImage?.fields.file.url, 
     },
   }));
+
 
   return pages;
 }
 
-const { title, tags, content,imageUrl } = Astro.props;
+const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
 
 ---
 
@@ -48,7 +52,15 @@ const { title, tags, content,imageUrl } = Astro.props;
     {imageUrl && (
       <img src={imageUrl} alt="{title}" class="post-image" />
     )}
-    <h1 class="h2 padded mono core-width outline">{title}</h1>
+    <div class="split outline core-width ">
+      <div><h1 class="h1 padded mono">{title}</h1></div>
+     <div class="outline">
+      {titleImage && (
+        <img src={titleImage} alt="{title}" class="post-image" />
+      )}
+     </div>
+    </div>
+
   </div>
   <div class="outline lined">
 
@@ -59,10 +71,22 @@ const { title, tags, content,imageUrl } = Astro.props;
         ))}
       </div>
     )}
-    <div class="core-width outline padded bg">
-     
-      <BlogContent body={content}/>
-
+    <div class="core-width outline  bg project-split-container">
+      <div class="title h4 mono padded">
+        Project overview
+      </div>
+     <div class="description padded">
+      <BlogContent body={overview}/>
+     </div>
+      
+    </div>
+    <div class="core-width outline bg project-split-container">
+      <div class="title h4 mono padded ">
+       Project details
+      </div>
+      <div class="description padded ">
+        <BlogContent body={content}/>
+      </div>
     </div>
     
   </div>
