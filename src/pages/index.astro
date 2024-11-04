@@ -31,7 +31,7 @@ const name = 'barry'; // Just a variable for testing
 
 <Layout>
   <div class="core-width outline">
-    <div class="hero padded">
+    <div class="hero padded bg">
       <h1 class="h1 mono text-high"><span class="highlight-red">Dan</span>ielius M.</h1>
       <div class="text-low mono">UX & UI designer</div>
       <br>
@@ -50,29 +50,31 @@ const name = 'barry'; // Just a variable for testing
   </div>
 
   <div class="outline">
-    <div class="core-width lined outline h-2rem"></div>
+    <div class="core-width outline h-2rem"></div>
   </div>
   <div class="outline">
-    <div class="core-width outline">
+    <div class="core-width outline bg">
       <h1 class="h2 padded mono">Project highlights</h1>
+
+      <div id="tag-filters" class="outline">
+        {availableTags.map(tag => (
+          <label key={tag} class="tag-filter-option outline mono">
+            <input type="checkbox" value={tag} checked/>
+            <span>{tag}</span>
+          </label>
+        ))}
+          <span>
+            <input type="checkbox" id="orange" name="orange" checked >
+            <label for="orange" >Orange</label>
+          </span>
+      </div>    
     </div>
-   <div id="tag-filters" class="outline core-width lined">
-  {availableTags.map(tag => (
-    <label key={tag} class="tag-filter-option outline mono">
-      <input type="checkbox" value={tag} checked/>
-      <span>{tag}</span>
-    </label>
-  ))}
-    <span>
-      <input type="checkbox" id="orange" name="orange" checked >
-      <label for="orange" >Orange</label>
-    </span>
-</div>      
+  
   </div>
   <div class="outline">
     <div class="core-width outline">
       <!-- Display blog posts dynamically -->
-      <div class="bento-container lined" id="post-container">
+      <div class="bento-container" id="post-container">
         {entries.items.map((item) => {
           const sizeClass = item.fields.size || 'size-small';
           const imageUrl = item.fields.titleImage?.fields.file.url;
@@ -110,7 +112,7 @@ const name = 'barry'; // Just a variable for testing
     </div>
   </div>
   <div class="outline">
-    <div class="core-width lined outline h-2rem"></div>
+    <div class="core-width outline h-2rem"></div>
   </div>
   
 

@@ -48,11 +48,11 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
 ---
 
 <Layout>
-  <div class="outline">
+  <div class="outline lined">
     {imageUrl && (
       <img src={imageUrl} alt="{title}" class="post-image" />
     )}
-    <div class="split outline core-width ">
+    <div class="split outline core-width bg">
       <div><h1 class="h1 padded mono">{title}</h1></div>
      <div class="outline">
       {titleImage && (
