@@ -9,7 +9,7 @@ interface Props {
   title: string;
   description: string;
   date: string;
-  tagging: string[];
+  tags: string[];
   ttr: number;
   content: Document;
   overview: Document;
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
       title: item.fields.title,
       content: item.fields.content,
       overview: item.fields.overview,  
-      tags: item.metadata.tags?.map((x) => x.sys.id) ?? [],
+      tags: item.metadata.tags?.map((x) => x.sys.id) ?? [], 
       titleImage: item.fields.titleImage?.fields.file.url, 
     },
   }));
@@ -53,7 +53,18 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
       <img src={imageUrl} alt="{title}" class="post-image" />
     )}
     <div class="split outline core-width bg">
-      <div><h1 class="h1 padded mono">{title}</h1></div>
+      <div>
+        <h1 class="h1 padded mono">{title}</h1>
+
+        {tags.length > 0 && (
+          <div class="bento-tags">
+            {tags.map(tag => (
+              <span class="tag mono">{tag}</span>
+            ))}
+          </div>
+        )}
+
+      </div>
      <div class="outline">
       {titleImage && (
         <img src={titleImage} alt="{title}" class="post-image" />
@@ -64,13 +75,7 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
   </div>
   <div class="outline lined">
 
-    {tags.length > 0 && (
-      <div class="bento-tags">
-        {tags.map(tag => (
-          <span class="tag mono">{tag}</span>
-        ))}
-      </div>
-    )}
+
     <div class="core-width outline  bg project-split-container">
       <div class="title h4 mono padded">
         Project overview

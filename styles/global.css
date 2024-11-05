@@ -7,8 +7,10 @@
     --border:1px solid var(--border-colour);
     --outline:var(--border-colour) 2px solid;
     --border-colour: var(--gray-200);
-
     --hover-highlight:var(--amber-500);
+    --line-colour:var(--amber-300);
+    --accent-colour:var(--red-700);
+
 
     --black:#191919;
     --grey1:#808080;
@@ -109,7 +111,7 @@ outline-offset: -1px;
     background: linear-gradient(
         45deg,
         transparent 49%,
-        var( --amber-300) 50%,
+        var(--line-colour) 50%,
         transparent 51%
     );
     background-size: 10px 10px; /* Adjust the size to create the diagonal lines */
@@ -153,7 +155,12 @@ outline-offset: -1px;
 }
 
 a{
-   color:var(--red-700); 
+   color:var(--accent-colour); 
+}
+
+/* navigation bits */
+.number {
+    color:var(--accent-colour);
 }
 
 .nav-links.desktop {
@@ -239,7 +246,7 @@ margin:0;
     padding:0 0.4rem;
     margin-right:0.5rem;
     background-color: var(--bg);
-    border:0.2rem solid var(--red-700);
+    border:0.2rem solid var(--accent-colour);
 }
 
   
@@ -290,7 +297,8 @@ background-size: 20px 20px; Adjust the size to create the diagonal lines */
 
 
 .project-split-container .title {
-    color:var(--gray-400);
+    color:var(--border-colour);
+    background:var(--accent-colour);
     flex:1;
 }
 
