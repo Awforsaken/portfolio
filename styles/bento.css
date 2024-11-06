@@ -13,8 +13,8 @@
     padding: 0;
 }
 
-.bento-item {
-
+a.bento-item {
+    color:var(--accent-colour); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +32,8 @@
     /* background-color:var(--amber-500); */
     outline: 4px solid var(--amber-500); /* 4px thick outline */
     outline-offset: -5px; /* Negative value to push the outline inside */
+    background-color: var(--bg);
+    color:var(--red-800); 
 }
 
 .bento-item.size-large {

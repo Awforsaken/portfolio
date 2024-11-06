@@ -11,7 +11,7 @@ article h1{
 
 article p {
     margin-bottom: 1rem;
-    color:var(--text-mid);
+    color:var(--text-high);
 }
 
 /* general text stuff */

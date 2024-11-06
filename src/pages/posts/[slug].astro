@@ -48,7 +48,7 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
 ---
 
 <Layout>
-  <div class="outline lined">
+  <div class="outline">
     {imageUrl && (
       <img src={imageUrl} alt="{title}" class="post-image" />
     )}
@@ -73,11 +73,12 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
     </div>
 
   </div>
-  <div class="outline lined">
+  <div class="outline">
 
 
     <div class="core-width outline  bg project-split-container">
-      <div class="title h4 mono padded">
+      <div class="title mono padded">
+        01.<br>
         Project overview
       </div>
      <div class="description padded">
@@ -86,7 +87,8 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
       
     </div>
     <div class="core-width outline bg project-split-container">
-      <div class="title h4 mono padded ">
+      <div class="title mono padded ">
+       02. <br>
        Project details
       </div>
       <div class="description padded ">
