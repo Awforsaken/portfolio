@@ -77,6 +77,10 @@ b {
 }
 
 @media screen and (min-width: 720px) {
+    html {
+        font-size: 120%;
+    }
+
     .h1 {
         font-size: 4rem;
     }
@@ -99,6 +103,6 @@ b {
 
 @media screen and (min-width: 2000px) {
     html {
-        font-size: 120%;
+        font-size: 140%;
     }
 }

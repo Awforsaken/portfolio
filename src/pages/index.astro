@@ -23,9 +23,7 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 });
 
 // Manually define available tags
-const availableTags = ['Personal', 'Web dev', 'Work', 'UX/UI', 'Design', 'Hobby']; 
-
-const name = 'barry'; // Just a variable for testing
+const availableTags = ['Web dev', 'UX/UI', 'Design', 'Hobby', 'Physical']; 
 
 ---
 
@@ -38,11 +36,13 @@ const name = 'barry'; // Just a variable for testing
       <div class="text-mid text-max text-high">
         I am a UX and UI designer, general creative who loves tinkering with code...
       </div>
+      <br>
       <div class="mono">
-        This is work in progress and I still have things to do:
-        <ul>
-          <li>mobile header</li>
-          <li>styling for portfolio bento // clean up bento.css</li>
+        This is work in progress and i got many more things left to do, but this being published and public motivates me to complete these sooner rather than later:
+        <ul class="padded">
+          <li>Overall header and logo design</li>
+          <li>Make footer/site map</li>
+          <li>Write up all the projects</li>
           <li>sort out about me section</li>
         </ul>
       </div>
@@ -54,7 +54,11 @@ const name = 'barry'; // Just a variable for testing
   </div>
   <div class="outline">
     <div class="core-width outline bg">
-      <h1 class="h2 padded mono">Project highlights</h1>
+      <div class="padded">
+        <h1 class="h2 mono">Projects</h1>
+        <span class="text-mid">And other cool things I made, feel free to use filters below to refine </span>
+      </div>
+
 
       <div id="tag-filters" class="outline">
         {availableTags.map(tag => (
@@ -63,10 +67,6 @@ const name = 'barry'; // Just a variable for testing
             <span>{tag}</span>
           </label>
         ))}
-          <span>
-            <input type="checkbox" id="orange" name="orange" checked >
-            <label for="orange" >Orange</label>
-          </span>
       </div>    
     </div>
   
@@ -95,15 +95,16 @@ const name = 'barry'; // Just a variable for testing
 </svg>
                 <div class="bento-info-card">
                   <h2 class="h5 mono">{item.fields.title}</h2>
-                </div>
-        
-                {postTags.length > 0 && (
+                  {postTags.length > 0 && (
                   <div class="bento-tags">
                     {postTags.map(tag => (
                       <span key={tag} class="tag mono">{tag}</span>
                     ))}
                   </div>
                 )}
+                </div>
+        
+
               
             </a>
           );
@@ -111,12 +112,5 @@ const name = 'barry'; // Just a variable for testing
       </div>
     </div>
   </div>
-  <div class="outline">
-    <div class="core-width outline h-2rem"></div>
-  </div>
-  
 
-  
-
-  {name}
 </Layout>

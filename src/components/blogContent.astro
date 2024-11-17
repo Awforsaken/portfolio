@@ -1,7 +1,25 @@
 ---
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+
 const { body } = Astro.props;
+
+const options = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      // Check if we have the expected data structure
+      if (node.data?.target?.fields) {
+        const { file } = node.data.target.fields;
+        // Make sure we're getting the full URL
+        const imageUrl = file.url.startsWith('//') ? `https:${file.url}` : file.url;
+        return `<img src="${imageUrl}" alt="${file.description || ''}" />`;
+      }
+      return ''; // Return empty string if we don't have the expected data
+    },
+  },
+};
+
+const content = documentToHtmlString(body, options);
 ---
 
-  <article id="blog-post-content"  set:html={documentToHtmlString(body)}>
-  </article>
+<article id="blog-post-content" set:html={content}></article>

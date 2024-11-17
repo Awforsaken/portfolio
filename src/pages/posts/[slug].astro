@@ -1,24 +1,61 @@
 ---
+// Import necessary components and utilities
 import Layout from "../../layouts/Layout.astro";
-import {contentfulClient } from "../../lib/contentful";
-import {BlogPost} from "../index.astro"
+import { contentfulClient } from "../../lib/contentful";
 import type { Document } from "@contentful/rich-text-types";
 import BlogContent from "../../components/blogContent.astro";
 
+// Define the Asset interface
+interface Asset {
+  fields: {
+    file: {
+      url: string;
+      details?: {
+        size: number;
+        image?: {
+          width: number;
+          height: number;
+        };
+      };
+      fileName: string;
+      contentType: string;
+    };
+    title?: string;
+    description?: string;
+  };
+}
+
+// Define the BlogPost interface
+interface BlogPost {
+  fields: {
+    title: string;
+    slug: string;
+    content: Document;
+    overview: Document;
+    titleImage: Asset;
+  };
+  metadata: {
+    tags?: Array<{ sys: { id: string } }>;
+  };
+  sys: {
+    id: string;
+  };
+}
+
+// Update Props interface to match what we're actually using
 interface Props {
   title: string;
-  description: string;
-  date: string;
-  tags: string[];
-  ttr: number;
   content: Document;
   overview: Document;
-  
+  tags: string[];
+  titleImage: string | null;
+  titleImageAlt: string;
 }
 
 export async function getStaticPaths() {
   const { items } = await contentfulClient.getEntries<BlogPost>({
     content_type: "post",
+    include: 2,
   });
 
   if (!items) {
@@ -28,34 +65,45 @@ export async function getStaticPaths() {
     };
   }
 
-  const pages = items.map((item) => ({
-    params: { slug: item.fields.slug },
-    props: {
-      title: item.fields.title,
-      content: item.fields.content,
-      overview: item.fields.overview,  
-      tags: item.metadata.tags?.map((x) => x.sys.id) ?? [], 
-      titleImage: item.fields.titleImage?.fields.file.url, 
-    },
-  }));
+  const pages = items.map((item) => {
+    // More defensive URL handling
+    const titleImageUrl = item.fields.titleImage?.fields?.file?.url
+      ? item.fields.titleImage.fields.file.url.startsWith('//')
+        ? `https:${item.fields.titleImage.fields.file.url}`
+        : item.fields.titleImage.fields.file.url
+      : null;
 
+    return {
+      params: { slug: item.fields.slug },
+      props: {
+        title: item.fields.title,
+        content: item.fields.content,
+        overview: item.fields.overview,
+        tags: item.metadata?.tags?.map((x) => x.sys.id) || [],
+        titleImage: titleImageUrl,
+        titleImageAlt: item.fields.titleImage?.fields?.description || item.fields.title,
+      },
+    };
+  });
 
   return pages;
 }
-
-const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
-
+// Destructure props with default values
+const { 
+  title, 
+  tags = [], 
+  content, 
+  overview, 
+  titleImage = null,
+  titleImageAlt = title 
+} = Astro.props;
 ---
 
 <Layout>
   <div class="outline">
-    {imageUrl && (
-      <img src={imageUrl} alt="{title}" class="post-image" />
-    )}
     <div class="split outline core-width bg">
       <div>
         <h1 class="h1 padded mono">{title}</h1>
-
         {tags.length > 0 && (
           <div class="bento-tags">
             {tags.map(tag => (
@@ -63,42 +111,37 @@ const { title, tags, content, imageUrl, overview, titleImage } = Astro.props;
             ))}
           </div>
         )}
-
       </div>
-     <div class="outline">
-      {titleImage && (
-        <img src={titleImage} alt="{title}" class="post-image" />
-      )}
-     </div>
+      <div class="outline">
+        {titleImage && (
+          <img 
+            src={titleImage} 
+            alt={titleImageAlt}
+            class="post-image" 
+            loading="lazy"
+          />
+        )}
+      </div>
     </div>
-
   </div>
-  <div class="outline">
 
-
-    <div class="core-width outline  bg project-split-container">
-      <div class="title mono padded">
-        01.<br>
-        Project overview
-      </div>
-     <div class="description padded">
-      <BlogContent body={overview}/>
-     </div>
-      
+  <div class="core-width outline bg project-split-container padded">
+    <div class="title mono ">
+      01.<br>
+      Overview
     </div>
-    <div class="core-width outline bg project-split-container">
-      <div class="title mono padded ">
-       02. <br>
-       Project details
-      </div>
-      <div class="description padded ">
-        <BlogContent body={content}/>
-      </div>
+    <div class="description">
+      <BlogContent body={overview} />
     </div>
-    
   </div>
-      
-
-
-
+  
+  <div class="core-width outline bg project-split-container padded">
+    <div class="title mono">
+      02.<br>
+      Details
+    </div>
+    <div class="description">
+      <BlogContent body={content} />
+    </div>
+  </div>
 </Layout>
