@@ -389,6 +389,9 @@ footer .section {
     flex:1;
 }
 
+.navigation.desktop, .desktop {
+    display: none;
+}
 
 @media screen and (min-width: 720px) {
 
