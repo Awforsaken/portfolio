@@ -1,7 +1,7 @@
 /* blog post specific styles */
 article h1, article h2, article h3, article h4{
     margin-bottom: 1rem;
-    font-family: "Space Mono", monospace;
+    font-family: "GeistMono", monospace;
 }
 
 article h1{
@@ -15,6 +15,9 @@ article p {
 }
 
 /* general text stuff */
+article ol {
+    margin-left:2rem;
+}
 
 .text-high{
     color:var(--text-high);

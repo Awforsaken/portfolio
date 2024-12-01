@@ -35,9 +35,35 @@
     font-display: swap;
   }
 
+  @font-face {
+    font-family: 'DMmono';
+    src: url('DMMono-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'RobotoMono';
+    src: url('RobotoMono-VariableFont_wght.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Martian';
+    src: url('MartianMono.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
 * {
     box-sizing: border-box;
     margin:0;
+    
 }
 
 .hidden {
@@ -121,7 +147,7 @@ outline-offset: -1px;
 }
 
 .mono {
-    font-family: "Space Mono", monospace;
+    font-family: "Martian", monospace;
 }
 
 .mono-bold {
@@ -145,10 +171,13 @@ outline-offset: -1px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-between;
+    flex-grow:1;
+    align-items: stretch;
 }
   
 .logo {
-    max-width:200px;
+    display:flex;
+    flex:1;
 }
 
 a{
@@ -165,14 +194,16 @@ a:hover {
     color:var(--accent-colour);
 }
 
-.nav-links.desktop {
+.navigation.desktop, .desktop {
     display: none;
 }
+
 
 a.nav-item, .nav-item {
     padding: 1.5rem 1rem;
     color: var(--text-mid);
     background-color: var(--bg);
+    flex-grow: 2;
 }
 
 
@@ -191,6 +222,7 @@ a.nav-item, .nav-item {
     color: var(--hover-highlight);
     background-color: var(--bg);
     text-decoration: none;
+    align-content: flex-end;
 }
 
 .nav-links .nav-cta:hover, .nav-links .nav-cta:hover {
@@ -272,8 +304,20 @@ background-size: 20px 20px; Adjust the size to create the diagonal lines */
 
 .mobile-menu.open {
     display: flex;
+    z-index: 10;
 }
 
+/* overlay */
+.mobile-menu.lined{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     background-color: var(--bg);
+     opacity:0.6;
+}
 .mobile.nav-links {
     position:fixed;
     bottom:0;
@@ -327,7 +371,7 @@ article > img {
 }
 
 .hero > h1 {
-    margin-bottom: -1rem;
+    margin-bottom: -0.5rem;
 }
 
 footer .section {
@@ -353,14 +397,7 @@ footer .section {
     }
 
     /* menu and navigation*/
-    .nav-links {
-    display: flex;
-    flex-direction: row;
-    }
 
-
-
-    /* article divider thing*/
     .project-split-container {
         display:flex;
         flex-direction: row;
@@ -399,11 +436,6 @@ footer .section {
         padding:1rem 2rem;
     }
 
-    .nav-links {
-        display: flex;
-        width: auto;
-    }
-
     body .core-width {
         margin: 0 4rem;
     }
@@ -423,8 +455,15 @@ footer .section {
         display:none;
     }
 
-    .nav-links.desktop {
-        display:flex;
+    .navigation.desktop {
+        display:inline;
+        grid-column: span 2
+    }
+    .desktop.nav-links {
+        display:flex; align-items:stretch;
+    }
+    .desktop {
+        display: flex;
     }
 }
 

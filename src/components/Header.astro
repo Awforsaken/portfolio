@@ -2,39 +2,59 @@
 //import Navigation from './Header.astro';
 ---
 <header class="outline lined">
-  <div class="core-width header-contents outline">
+
+
+
+  <div class="core-width header-contents bento-container">
+
     <div class="logo bg outline">
-      hi
+      hi hello
+    </div>
+    <div class="outline bg desktop"></div>
+    <div class="outline desktop navigation">
+      <nav class="desktop nav-links mono outline">
+        <a class="nav-item" href="/">home</a>
+        <a class="nav-item" href="/about">about me</a>
+        <a class="mono nav-cta" href="url">
+          <div class="cta">get in touch</div>
+        </a>
+        </nav>
     </div>
 
-    <nav class="desktop nav-links mono">
-      <a class="outline nav-item" href="/">home</a>
-      <a class="outline nav-item" href="/about">about me</a>
-      <a class="outline mono nav-cta" href="url">
-        <div class="cta">get in touch</div>
-      </a>
-    </nav>
 
 
 
     <nav class="mobile nav-links outline">
       <div class="mobile-menu">
-        <a class="outline nav-item" href="/">home</a>
-        <a class="outline nav-item" href="/about">about me</a>
-        <a class="outline mono nav-cta" href="url">
-          <div class="cta">get in touch</div>
-        </a>
+        <div class="flex-vertical">
+          <div class="two-grid" style="">          
+            <a class="outline nav-item" href="/">home</a>
+            <a class="outline nav-item" href="/about">about me</a>
+          </div>
+          <a class="outline mono nav-cta" href="url">
+            <div class="cta">get in touch</div>
+          </a>
+        </div>
+
+
+
+
       </div>
+  
       <a class=" outline mono nav-cta" href="javascript:void(0);" id="mobile-menu-button">
         <div class="cta">menu</div>
         <div class="nav-item hidden close">x</div>
       </a>
     </nav>
+    <div class="mobile-menu lined">
+    </div>
 
    
 
   </div>
-
+  <div class="outline">
+    <div class="core-width outline h-2rem"></div>
+  </div>
 
 </header>
 
