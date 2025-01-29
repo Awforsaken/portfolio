@@ -26,26 +26,19 @@
     font-style: normal;
     font-display: swap;
   }
- 
+  
   @font-face {
-    font-family: 'GeistMono';
-    src: url('GeistMonoVF.woff') format('woff');
+    font-family: 'Chomsky';
+    src:    url('Chomsky.otf') format('opentype'),
+            url('Chomsky.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'DMmono';
-    src: url('DMMono-Regular.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'RobotoMono';
-    src: url('RobotoMono-VariableFont_wght.ttf') format('woff');
+    font-family: 'Jacq';
+    src: url('Jacquard24-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -150,10 +143,10 @@ outline-offset: -1px;
     font-family: "Martian", monospace;
 }
 
-.mono-bold {
-    font-family: 'SpaceBold';
+.spicy {
+    font-family: "Chomsky", monospace;
+    font-weight: 500 !important;
 }
-
 
 .h-2rem {
     min-height:2rem;
@@ -260,6 +253,11 @@ a{
    color:var(--accent-colour); 
    background-color: var(--gray-100);
 }
+
+.footer a{
+    line-height: 2rem;
+ }
+
 a:hover {
     color:var(--red-800); 
     background-color: var(--amber-100);  
@@ -488,7 +486,6 @@ footer .section {
 
 .entry .entry-main {
     grid-column: span 3;
-    grid-row: span 2;
 }
 
 
@@ -541,6 +538,14 @@ footer .section {
 
     .padded {
         padding:1rem 2rem;
+    }
+
+    .padded-bottom {
+        padding-bottom: 2rem;
+    }
+
+    .full-height{
+        height: 100%;
     }
 
     body .core-width {
