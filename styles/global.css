@@ -148,6 +148,8 @@ outline-offset: -1px;
     font-weight: 500 !important;
 }
 
+
+
 .h-2rem {
     min-height:2rem;
 }
@@ -449,6 +451,7 @@ article > img {
 
 .hero > h1 {
     margin-bottom: -0.5rem;
+    font-size: 8rem;
 }
 
 footer .section {
