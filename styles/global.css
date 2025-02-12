@@ -449,10 +449,7 @@ article > img {
     border:var(--border)
 }
 
-.hero > h1 {
-    margin-bottom: -0.5rem;
-    font-size: 8rem;
-}
+
 
 footer .section {
     flex-direction: column;
@@ -539,12 +536,16 @@ footer .section {
         align-items: center;     /* Centers vertically */
     }
 
-    .padded {
+    .hero .padded {
         padding:1rem 2rem;
     }
 
     .padded-bottom {
         padding-bottom: 2rem;
+    }
+
+    .padded {
+        padding:1rem;
     }
 
     .full-height{

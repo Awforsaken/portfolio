@@ -40,6 +40,16 @@ article ol {
     color: var(--red-700);
 }
 
+.highlight-shadow {
+    text-shadow: 2px 2px 0px var(--red-700);
+
+}
+
+.hero > h1 {
+    margin-bottom: -0.5rem;
+    font-size: 5rem;
+}
+
 .h1 {
     font-size: 3rem;
     font-weight: 900;
@@ -83,9 +93,12 @@ b {
     html {
         font-size: 120%;
     }
+    .hero > h1 {
+        font-size: 8rem;
+    }
 
     .h1 {
-        font-size: 4rem;
+        font-size: 7rem;
     }
     .h2 {
         font-size: 3rem;
@@ -100,7 +113,7 @@ b {
         font-size: 1.2rem;
     }
     .h6 {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
