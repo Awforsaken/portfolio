@@ -346,10 +346,58 @@ margin:0;
 .tag {
     font-size: 0.8rem;
     padding:0 0.4rem;
-    margin-right:0.5rem;
+    margin-right:0.2rem;
     background-color: var(--gray-200);
     color:var(--text-mid);
+    display: inline-block;
+    font-family: "Martian", monospace;
 }
+
+
+/* UX/UI Design Tags */
+
+
+.tag-design-systems { background-color: var(--teal-200); color: var(--teal-900); }
+.tag-design-systems::after { content: "design systems"; }
+
+.tag-user-flows {background-color: var(--purple-200); color: var(--purple-900); } 
+.tag-user-flows::after { content: "user flows"; }
+
+.tag-user-research { background-color: var(--green-200); color: var(--green-900); }
+.tag-user-research::after { content: "user research"; }
+
+.tag-html-css { background-color: var(--red-200); color: var(--red-900); }
+.tag-html-css::after { content: "HTML & CSS"; }
+
+.tag-ab-testing { background-color: var(--pink-200); color: var(--pink-900); }
+.tag-ab-testing::after { content: "A/B testing"; }
+
+/* Replacing gray for Axure with indigo/violet tones */
+.tag-axure { background-color: var(--purple-200); color: var(--purple-700); }
+.tag-axure::after { content: "axure RP"; }
+
+.tag-figma { background-color: var(--blue-200); color: var(--blue-900); }
+.tag-figma::after { content: "figma"; }
+
+.tag-sketch { background-color: var(--amber-200); color: var(--amber-900); }
+.tag-sketch::after { content: "sketch"; }
+
+/* soft skills*/
+.tag-team-leadership { background-color: var(--blue-700); color: var(--blue-100); }
+.tag-team-leadership::after { content: "team leadership"; }
+
+.tag-stakeholder-management { background-color: var(--amber-700); color: var(--amber-100); }
+.tag-stakeholder-management::after { content: "stakeholder management"; }
+
+/* Branding - using red with inverted colors for distinction */
+.tag-branding { background-color: var(--red-600); color: var(--red-100); }
+.tag-branding::after { content: "Branding"; }
+
+/* Data Visualization - using teal with inverted colors */
+.tag-data-visualization { background-color: var(--teal-700); color: var(--teal-100); }
+.tag-data-visualization::after { content: "Data Visualization"; }
+
+
     /* menu and navigation*/
     .nav-links {
         background: var(--bg);
@@ -486,10 +534,13 @@ footer .section {
 
 .entry .entry-main {
     grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 820px) {
 
     .entry {
         /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
