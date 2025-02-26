@@ -357,44 +357,41 @@ margin:0;
 /* UX/UI Design Tags */
 
 
-.tag-design-systems { background-color: var(--teal-200); color: var(--teal-900); }
-.tag-design-systems::after { content: "design systems"; }
+/* Tags with different background colors but same text color */
+.tag-design-systems { background-color: var(--teal-200); }
+.tag-design-systems::after { content: "Design Systems"; }
 
-.tag-user-flows {background-color: var(--purple-200); color: var(--purple-900); } 
-.tag-user-flows::after { content: "user flows"; }
+.tag-user-flows { background-color: var(--green-200); }
+.tag-user-flows::after { content: "User Flows"; }
 
-.tag-user-research { background-color: var(--green-200); color: var(--green-900); }
-.tag-user-research::after { content: "user research"; }
+.tag-user-research { background-color: var(--purple-200); }
+.tag-user-research::after { content: "User Research"; }
 
-.tag-html-css { background-color: var(--red-200); color: var(--red-900); }
+.tag-html-css { background-color: var(--red-200); }
 .tag-html-css::after { content: "HTML & CSS"; }
 
-.tag-ab-testing { background-color: var(--pink-200); color: var(--pink-900); }
-.tag-ab-testing::after { content: "A/B testing"; }
+.tag-ab-testing { background-color: var(--pink-200); }
+.tag-ab-testing::after { content: "A/B Testing"; }
 
-/* Replacing gray for Axure with indigo/violet tones */
-.tag-axure { background-color: var(--purple-200); color: var(--purple-700); }
-.tag-axure::after { content: "axure RP"; }
+.tag-axure { background-color: var(--blue-200); }
+.tag-axure::after { content: "Axure RP"; }
 
-.tag-figma { background-color: var(--blue-200); color: var(--blue-900); }
-.tag-figma::after { content: "figma"; }
+.tag-figma { background-color: var(--blue-300); }
+.tag-figma::after { content: "Figma"; }
 
-.tag-sketch { background-color: var(--amber-200); color: var(--amber-900); }
-.tag-sketch::after { content: "sketch"; }
+.tag-sketch { background-color: var(--amber-200); }
+.tag-sketch::after { content: "Sketch"; }
 
-/* soft skills*/
-.tag-team-leadership { background-color: var(--blue-700); color: var(--blue-100); }
-.tag-team-leadership::after { content: "team leadership"; }
+.tag-team-leadership { background-color: var(--gray-300); }
+.tag-team-leadership::after { content: "Team Leadership"; }
 
-.tag-stakeholder-management { background-color: var(--amber-700); color: var(--amber-100); }
-.tag-stakeholder-management::after { content: "stakeholder management"; }
+.tag-stakeholder-management { background-color: var(--amber-300); }
+.tag-stakeholder-management::after { content: "Stakeholder Management"; }
 
-/* Branding - using red with inverted colors for distinction */
-.tag-branding { background-color: var(--red-600); color: var(--red-100); }
+.tag-branding { background-color: var(--red-300); }
 .tag-branding::after { content: "Branding"; }
 
-/* Data Visualization - using teal with inverted colors */
-.tag-data-visualization { background-color: var(--teal-700); color: var(--teal-100); }
+.tag-data-visualization { background-color: var(--teal-300); }
 .tag-data-visualization::after { content: "Data Visualization"; }
 
 
@@ -522,7 +519,6 @@ footer .section {
 .entry {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    
     grid-template-columns: repeat(1, 1fr);
     gap: 0;
     padding: 0;
@@ -539,13 +535,15 @@ footer .section {
     justify-content: space-between;
 }
 
+.company-logo {
+    padding:1rem 0 ;
+}
 
 @media screen and (min-width: 820px) {
 
     .entry {
         /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
         grid-template-columns: repeat(4, 1fr);
-
     }
 
     .text-max {
