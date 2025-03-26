@@ -65,13 +65,6 @@ a.bento-item {
     margin-bottom: 0;
 }
 
-/* .bento-tags {
-    top:1rem;
-    left:1rem;
-    position:absolute;
-    padding:0.2rem 0;
-} */
-
 @media (max-width: 719px) {
 
     .bento-container {
