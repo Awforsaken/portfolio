@@ -14,11 +14,6 @@ article p {
     color:var(--text-high);
 }
 
-/* general text stuff */
-article ol {
-    margin-left:2rem;
-}
-
 .text-high{
     color:var(--text-high);
 }
@@ -88,6 +83,88 @@ article ol {
 b {
     font-weight: 900;
 }
+
+ul, ol {
+    padding-left: 2rem;
+  }
+  
+  /* Unordered list styling */
+  ul {
+    list-style: none;
+  }
+  
+  ul li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;  
+  }
+  
+  ul li::before {
+    font-family: "Martian", monospace;
+    content: "*";
+    position: absolute;
+    left: -1.2rem;
+    color:var(--text-mid);
+  }
+  
+  /* Nested unordered lists */
+  ul ul {
+    margin: 0.5rem 0 0.5rem 0.5rem;
+  }
+  
+  ul ul li::before {  
+    font-family: "Martian", monospace;
+    content: ">";
+    color: #40a9ff; /* Using your blue-500 color for nested items */
+  }
+  
+  /* Ordered list styling */
+  ol {
+    list-style: none;
+    counter-reset: item;
+  }
+  
+  ol li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    counter-increment: item;
+  }
+  
+  ol li::before {
+    font-family: "Martian", monospace;
+    content: counter(item) ".";
+    position: absolute;
+    left: -1.2rem;
+    color:var(--text-mid);
+  }
+  
+  /* Nested ordered lists */
+  ol ol {
+    margin: 0.5rem 0 0.5rem 0.5rem;
+    counter-reset: subitem;
+  }
+  
+  ol ol li {
+    counter-increment: subitem;
+  }
+  
+  ol ol li::before {
+    content: counter(item) "." counter(subitem);
+    color: #40a9ff; /* Using your blue-500 color for nested items */
+  }
+  
+  /* List items spacing and formatting */
+  li p {
+    margin: 0.5rem 0;
+  }
+  
+  /* Styles for lists inside div elements */
+  div ul, div ol {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
 
 @media screen and (min-width: 820px) {
     html {
