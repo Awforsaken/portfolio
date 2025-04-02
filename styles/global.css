@@ -388,40 +388,40 @@ margin:0;
 /* UX/UI Design Tags */
 
 .tag-design-systems { background-color: var(--teal-100); }
-.tag-design-systems::after { content: "Design Systems"; }
+.tag-design-systems::after { content: "design systems"; }
 
 .tag-user-flows { background-color: var(--green-100); }
-.tag-user-flows::after { content: "User Flows"; }
+.tag-user-flows::after { content: "user flows"; }
 
 .tag-user-research { background-color: var(--purple-100); }
-.tag-user-research::after { content: "User Research"; }
+.tag-user-research::after { content: "user research"; }
 
 .tag-html-css { background-color: var(--red-200); }
 .tag-html-css::after { content: "HTML & CSS"; }
 
 .tag-ab-testing { background-color: var(--pink-200); }
-.tag-ab-testing::after { content: "A/B Testing"; }
+.tag-ab-testing::after { content: "A/B testing"; }
 
 .tag-axure { background-color: var(--blue-100); }
-.tag-axure::after { content: "Axure RP"; }
+.tag-axure::after { content: "axure RP"; }
 
 .tag-figma { background-color: var(--blue-200); }
-.tag-figma::after { content: "Figma"; }
+.tag-figma::after { content: "figma"; }
 
 .tag-sketch { background-color: var(--amber-100); }
-.tag-sketch::after { content: "Sketch"; }
+.tag-sketch::after { content: "sketch"; }
 
 .tag-team-leadership { background-color: var(--gray-200); }
-.tag-team-leadership::after { content: "Team Leadership"; }
+.tag-team-leadership::after { content: "team leadership"; }
 
 .tag-stakeholder-management { background-color: var(--amber-200); }
-.tag-stakeholder-management::after { content: "Stakeholder Management"; }
+.tag-stakeholder-management::after { content: "stakeholder management"; }
 
 .tag-branding { background-color: var(--green-200); }
-.tag-branding::after { content: "Branding"; }
+.tag-branding::after { content: "branding"; }
 
 .tag-data-visualization { background-color: var(--teal-200); }
-.tag-data-visualization::after { content: "Data Visualization"; }
+.tag-data-visualization::after { content: "data visualization"; }
 
     /* menu and navigation*/
     .nav-links {
