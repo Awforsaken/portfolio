@@ -23,7 +23,7 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 });
 
 // Manually define available tags
-const availableTags = ['Web dev', 'UX/UI', 'Design', 'Hobby', 'Physical','Work']; 
+const availableTags = ['Work','Hobby']; 
 
 ---
 
@@ -35,11 +35,11 @@ const availableTags = ['Web dev', 'UX/UI', 'Design', 'Hobby', 'Physical','Work']
       <div class="text-low mono">a full stack UX & UI designer</div>
       <br>
       <div class="text-max text-high mono">
-        I am a UX and UI designer, general creative who loves tinkering with basically anything, from code to 3d design and printing to painting tiny plastic men.
+        curious creative who loves designing experiences, tinkering with code, game mastering/writing, and diving into probably-too-many arts and crafts projects.
       </div>
       <br>
       <div class="text-low mono">
-        This is work in progress and i got many more things left to do on this site, but this being live motivates me to complete these sooner rather than later:
+        This website is work in progress.
       </div>
     </div>
   </div>
@@ -51,11 +51,11 @@ const availableTags = ['Web dev', 'UX/UI', 'Design', 'Hobby', 'Physical','Work']
     <div class="core-width outline bg">
       <div class="padded">
         <h1 class="h1 spicy">projects</h1>
-        <span class="text-mid">And other cool things I made, feel free to use filters below to refine </span>
+        <span class="text-mid mono">all sorts of stuff i've done, in both professional and personal capacity </span>
       </div>
 
 
-      <div id="tag-filters" class="outline">
+      <div id="tag-filters" class="outline two-grid">
         {availableTags.map(tag => (
           <label key={tag} class="tag-filter-option outline mono">
             <input type="checkbox" value={tag} checked/>

@@ -322,6 +322,7 @@ margin:0;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    cursor: pointer;
 }
 
 .tag-filter-option.tag-selected {
@@ -386,41 +387,40 @@ margin:0;
 
 /* UX/UI Design Tags */
 
-
-.tag-design-systems { color: var(--teal-700); }
+.tag-design-systems { background-color: var(--teal-100); }
 .tag-design-systems::after { content: "Design Systems"; }
 
-.tag-user-flows { color: var(--green-700); }
+.tag-user-flows { background-color: var(--green-100); }
 .tag-user-flows::after { content: "User Flows"; }
 
-.tag-user-research { color: var(--purple-700); }
+.tag-user-research { background-color: var(--purple-100); }
 .tag-user-research::after { content: "User Research"; }
 
-.tag-html-css { color: var(--red-700); }
+.tag-html-css { background-color: var(--red-200); }
 .tag-html-css::after { content: "HTML & CSS"; }
 
-.tag-ab-testing { color: var(--pink-700); }
+.tag-ab-testing { background-color: var(--pink-200); }
 .tag-ab-testing::after { content: "A/B Testing"; }
 
-.tag-axure { color: var(--blue-700); }
+.tag-axure { background-color: var(--blue-100); }
 .tag-axure::after { content: "Axure RP"; }
 
-.tag-figma { color: var(--blue-800); }
+.tag-figma { background-color: var(--blue-200); }
 .tag-figma::after { content: "Figma"; }
 
-.tag-sketch { color: var(--amber-700); }
+.tag-sketch { background-color: var(--amber-100); }
 .tag-sketch::after { content: "Sketch"; }
 
-.tag-team-leadership { color: var(--gray-800); }
+.tag-team-leadership { background-color: var(--gray-200); }
 .tag-team-leadership::after { content: "Team Leadership"; }
 
-.tag-stakeholder-management { color: var(--amber-800); }
+.tag-stakeholder-management { background-color: var(--amber-200); }
 .tag-stakeholder-management::after { content: "Stakeholder Management"; }
 
-.tag-branding { color: var(--red-600); }
+.tag-branding { background-color: var(--green-200); }
 .tag-branding::after { content: "Branding"; }
 
-.tag-data-visualization { color: var(--teal-800); }
+.tag-data-visualization { background-color: var(--teal-200); }
 .tag-data-visualization::after { content: "Data Visualization"; }
 
     /* menu and navigation*/
@@ -492,7 +492,15 @@ background-size: 20px 20px; Adjust the size to create the diagonal lines */
     grid-row: span 1;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 0;
+}
 
+.grid-item-two {
+    grid-column: span 2;
+}
 hero {
     
     position: fixed;
@@ -579,6 +587,9 @@ footer .section {
     }
 
     /* menu and navigation*/
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
     .project-split-container {
         display:flex;

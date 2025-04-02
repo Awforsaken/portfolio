@@ -65,7 +65,7 @@ a.bento-item {
     margin-bottom: 0;
 }
 
-@media (max-width: 719px) {
+@media (max-width: 819px) {
 
     .bento-container {
         grid-template-columns: repeat(1, 1fr);
