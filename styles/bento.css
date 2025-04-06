@@ -51,6 +51,11 @@ a.bento-item {
     grid-column: span 1;
 }
 
+.no-results-message {
+    grid-column: span 2;
+    min-height: 300px;
+}
+
 .bento-info-card {
     /* background:var(--bg); */
     text-shadow: -2px -1px 0 var(--bg), 2px -1px 0 var(--bg), -2px 1px 0 var(--bg), 2px 1px 0 var(--bg);
@@ -62,6 +67,7 @@ a.bento-item {
 .bento-info-card > h2 {
     margin-bottom: 0;
 }
+
 
 @media (min-width: 820px) {
 

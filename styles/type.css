@@ -85,7 +85,7 @@ b {
 }
 
 ul, ol {
-    padding-left: 2rem;
+    padding-left: 1.2rem;
   }
   
   /* Unordered list styling */
@@ -104,7 +104,7 @@ ul, ol {
     content: "*";
     position: absolute;
     left: -1.2rem;
-    color:var(--text-mid);
+    color:var(--red-700);
   }
   
   /* Nested unordered lists */
@@ -115,7 +115,7 @@ ul, ol {
   ul ul li::before {  
     font-family: "Martian", monospace;
     content: ">";
-    color: #40a9ff; /* Using your blue-500 color for nested items */
+    color:var(--red-700);
   }
   
   /* Ordered list styling */
@@ -136,22 +136,24 @@ ul, ol {
     content: counter(item) ".";
     position: absolute;
     left: -1.2rem;
-    color:var(--text-mid);
+    color:var(--red-700);
   }
   
   /* Nested ordered lists */
   ol ol {
-    margin: 0.5rem 0 0.5rem 0.5rem;
+    margin: 0;
     counter-reset: subitem;
   }
   
   ol ol li {
     counter-increment: subitem;
+    
   }
   
   ol ol li::before {
     content: counter(item) "." counter(subitem);
-    color: #40a9ff; /* Using your blue-500 color for nested items */
+    color:var(--red-700);
+    left: -2rem;
   }
   
   /* List items spacing and formatting */

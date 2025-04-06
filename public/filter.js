@@ -18,6 +18,19 @@ $(document).ready(function() {
         $(this).addClass('hidden');
       }
     });
+
+    updateNoResultsMessage();
+  }
+
+  // Function to update the no-results message visibility
+  function updateNoResultsMessage() {
+    const allItemsHidden = $('.bento-container .bento-item:visible').length === 0;
+    
+    if (allItemsHidden) {
+      $('.no-results-message').removeClass('hidden');
+    } else {
+      $('.no-results-message').addClass('hidden');
+    }
   }
 
   // Listen for changes on the checkboxes
@@ -27,4 +40,8 @@ $(document).ready(function() {
 
   // Initial filter on page load
   updateFilteredPosts();
+
+
+  
 });
+

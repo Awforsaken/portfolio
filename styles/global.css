@@ -259,9 +259,6 @@ a:hover, footer a:hover .arrow {
     background-color: var(--hover-highlight);  
     fill:var(--text-high); 
 }
-a:hover.arrow {
-    
-}
 
 /* navigation bits */
 .number {
@@ -527,8 +524,13 @@ hero {
 article img {
     width:100%;
     max-width: 800px;
-    border:var(--border)
+
 }
+article .description img {
+    border:var(--border);
+    margin-bottom: 1rem;
+}
+
 
 
 
