@@ -67,7 +67,7 @@ export async function getStaticPaths() {
 
   const pages = items.map((item) => {
     // More defensive URL handling
-    const titleImageUrl = item.fields.titleImage?.fields?.file?.url
+    const titleImageUrl = item.fields.titleImage.fields?.file?.url
       ? item.fields.titleImage.fields.file.url.startsWith('//')
         ? `https:${item.fields.titleImage.fields.file.url}`
         : item.fields.titleImage.fields.file.url
@@ -102,7 +102,9 @@ const {
 <Layout>
   <div class="outline">
     <div class="split outline core-width bg">
+      
       <div>
+        <a>Home</a> / <span></span>
         <h1 class="h1 padded spicy">{title}</h1>
         {tags.length > 0 && (
           <div class="bento-tags">
