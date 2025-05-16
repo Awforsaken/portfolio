@@ -10,6 +10,7 @@
     --hover-highlight:var(--amber-500);
     --line-colour:var(--amber-300);
     --accent-colour:var(--red-700);
+    --svg-fill:var(--amber-300);
 
 
     --black:#191919;
@@ -167,6 +168,7 @@ outline-offset: -1px;
 .logo {
     display:flex;
     justify-content: space-around;
+        align-items: center;
 }
 
 .logo-svg {
@@ -177,8 +179,7 @@ outline-offset: -1px;
   }
   
    .logo-bg {
-    stroke: var(--text-mid);
-    transition: all 0.5s linear;
+    stroke: var(--accent-colour);
 
   }
   
@@ -488,11 +489,17 @@ background-size: 20px 20px; Adjust the size to create the diagonal lines */
 .grid-item-two {
     grid-column: span 2;
 }
-hero {
-    
-    position: fixed;
-    height: 90vh;
-    z-index: 0;
+.hero {
+    min-height: 30rem;
+    overflow: hidden;
+    position:relative;
+    vertical-align: middle;
+    padding:6rem 1rem;
+}
+
+.hero > *{
+    position:relative;
+    z-index:1;
 }
 
 .post-image{
@@ -520,9 +527,6 @@ article .description img {
     border:var(--border);
     margin-bottom: 1rem;
 }
-
-
-
 
 footer .section {
     flex-direction: column;
@@ -567,7 +571,28 @@ footer .section {
     padding:1rem 0 ;
 }
 
+.svg-hero-spin {
+    position:absolute;
+    z-index:0;
+    width:80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 @media screen and (min-width: 820px) {
+    .svg-hero-spin {
+    left: 70%;
+    width:35%;
+    min-width:30rem;
+    /* max-width: 35rem; */
+    }
+
+    .hero {
+            padding:6rem 1rem 8rem;
+    }
+
 
     .entry {
         /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
@@ -619,11 +644,6 @@ footer .section {
     }
     .split .breadcrumb {
         width: 100%;
-    }
-
-
-    .hero .padded {
-        padding:1rem 2rem;
     }
 
     .padded-bottom {

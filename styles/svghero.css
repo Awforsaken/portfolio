@@ -1,0 +1,206 @@
+
+
+.svg-hero-spin svg.both {
+   transform-origin: center;
+    animation: spin 300s linear infinite;
+}
+/* logo */
+.both .svg-logo-circle{
+   transform-origin: center;
+    stroke: var(--svg-fill);
+  animation: spin 90s linear infinite;
+  stroke-width:0.5px;
+}
+
+.outside-line {
+  stroke: var(--svg-fill);
+  
+}
+/* small orbit */
+.both .outside-small-orbit {
+ transform-origin: 210px 49px;
+ animation: spin 15s linear infinite;
+}
+
+
+
+.right .outside-small-orbit circle {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 6 3;
+}
+
+.left .outside-small-orbit circle {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 4 2;
+}
+
+/* line group orbit */
+.both .line-group {
+ transform-origin: center;
+ animation: spin 60s linear infinite;
+}
+
+.left .line-group {
+  stroke: var(--svg-fill);
+}
+ 
+ .left .line-group .line {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 2 4;
+}
+ 
+.left .line-group .sm-circle {
+  fill: var(--svg-fill);
+}
+
+.right .line-group {
+  stroke: var(--svg-fill);
+}
+ 
+.right .line-group .line {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 5 2;
+}
+ 
+.right .line-group .sm-circle {
+  fill: var(--bg);
+}
+
+/* outside */
+.both .outside {
+ transform-origin: center;
+ animation: spinb 60s linear infinite;
+ stroke-width:2px;
+}
+
+.left .outside {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 8 2;
+}
+
+.right .outside {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 3 5;
+}
+
+/* offset circle */
+.both .offset-circle {
+ transform-origin: center;
+ animation: spinb 60s linear infinite;
+}
+
+.left .offset-circle {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 4 2;
+}
+
+.right .offset-circle {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 7 1;
+}
+
+
+/* seven sides sides */
+.both .seven-sides {
+ transform-origin: center;
+ animation: spinb 60s linear infinite;
+}
+
+.left .seven-sides {
+  stroke: var(--svg-fill);
+  stroke-dasharray: 4 2;
+}
+
+.right .seven-sides {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 2 6;
+}
+
+/* inside orbit */
+.both .inside-orbit {
+ transform-origin: center;
+ animation: spinb 30s linear infinite;
+    stroke-width:2px;
+}
+
+.right .inside-orbit circle {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 3 1;
+}
+
+.left .inside-orbit circle {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 1 2;
+}
+
+/* circle medium */
+.both .circle-medium{
+   transform-origin: center;
+ animation: spin 120s linear infinite;
+  
+}
+
+.left .circle-medium{
+     stroke: var(--svg-fill);
+ stroke-dasharray: 2 6;
+}
+
+.right .circle-medium {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 6 2;
+}
+
+/* circle large */
+.both .large-circle {
+ transform-origin: center;
+ animation: spin 120s linear infinite;
+  stroke-width:2px;
+}
+
+.left .large-circle {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 1 2;
+}
+
+.right .large-circle {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 8 2 2 2;
+}
+
+.left .outside-small-orbit circle {
+ stroke: var(--svg-fill);
+ stroke-dasharray: 4 2;
+}
+
+.left .outside-small-orbit .smol-square {
+ stroke: var(--svg-fill);
+ fill: var(--bg);
+}
+
+
+
+.left .smol-triangle {
+ stroke: var(--svg-fill);
+   fill: var(--svg-fill);
+}
+
+.right .outside-small-orbit .smol-square {
+ stroke: var(--svg-fill);
+ fill: var(--svg-fill);
+}
+
+
+.right .smol-triangle {
+ stroke: var(--svg-fill);
+  fill:  var(--bg);
+}
+
+
+
+@-moz-keyframes spinb { 100% { -moz-transform: rotate(-360deg); } }
+@-webkit-keyframes spinb { 100% { -webkit-transform: rotate(-360deg); } }
+@keyframes spinb { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
