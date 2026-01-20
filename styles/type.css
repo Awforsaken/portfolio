@@ -16,7 +16,12 @@ article p {
 article code {
     margin-bottom: 1rem;
     font-family: "Martian", monospace;
-    white-space: pre;
+    white-space: pre-wrap;
+    font-size: 0.8em;
+    background: var(--bg-raised);
+    padding: 0.2rem;
+    width: 100%;
+    display: block;
 }
 
 .text-high{
