@@ -13,6 +13,11 @@ article p {
     margin-bottom: 1rem;
     color:var(--text-high);
 }
+article code {
+    margin-bottom: 1rem;
+    font-family: "Martian", monospace;
+    white-space: pre;
+}
 
 .text-high{
     color:var(--text-high);
