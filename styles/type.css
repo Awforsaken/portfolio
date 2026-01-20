@@ -22,6 +22,7 @@ article code {
     padding: 0.2rem;
     width: 100%;
     display: block;
+    line-height: 2em;
 }
 
 .text-high{
